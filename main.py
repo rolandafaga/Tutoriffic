@@ -19,7 +19,7 @@ class ProfileHandler(webapp2.RequestHandler):
 
     def post(self):
         profile_template = jinja_env.get_template('templates/profilepage.html')
-
+        profile_info = self.request.get('create')
 
 
 
