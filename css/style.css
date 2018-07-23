@@ -14,6 +14,10 @@ body {
   margin-right: 5%;
 }
 
+.name {
+  text-decoration: none;
+}
+
 #homeLinks {
   text-align: right;
 }
@@ -27,9 +31,25 @@ a:visited {
 }
 
 a:hover {
-    color: white;
     text-decoration: none;
+}
+
+.direct:link {
+    color:green;
+}
+
+.direct:visited {
+    color:green;
+}
+
+.navigation:hover {
+    color: white;
     background-color:#4d2800;
+}
+
+.direct:hover {
+    color: white;
+    background-color:green;
 }
 
 .navigation {
@@ -99,4 +119,19 @@ a:hover {
   background-color:#4d2800;
 }
 
-/*Page*/
+/*FAQ Page*/
+#directtitle {
+  text-align: left;
+  margin-left: 5%;
+  font-size: 15px;
+}
+
+.faqq {
+  text-align: left;
+  margin-left: 5%;
+}
+
+.faqa {
+  text-align: left;
+  margin-left: 5%;
+}
