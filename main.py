@@ -21,6 +21,12 @@ def find_or_create_user():
         return stuser;
     return None
 
+def get_log_inout_url(user):
+    if user:
+        return users.create_logout_url('/')
+    else:
+        return users.create_login_url('/')
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/homepage.html')
