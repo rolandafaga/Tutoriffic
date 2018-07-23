@@ -1,0 +1,21 @@
+#intro {
+  text-align:center;
+}
+
+#homePageTitle {
+  text-align: center;
+}
+
+#getStarted {
+  padding: 2px;
+  color: white;
+  background-color: green;
+  border: green 2px solid;
+  text-align: center;
+
+  /*centering the button*/
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
