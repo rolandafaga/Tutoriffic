@@ -3,10 +3,23 @@ import jinja2
 import os
 from google.appengine.api import users
 from google.appengine.ext import ndb
+from models import UserInfo
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
+@ndb.transactional
+def find_or_create_user():
+    user = users.get_current_user()
+    if user:
+        key = ndb.Key('UserInfo', user.user_id())
+        stuser = key.get()
+        if not stuser:
+            stuser = UserInfo(first_name=user.first_name(),
+                              last_name=user.last_name())
+        stuser.put()
+        return stuser;
+    return None
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -39,7 +52,7 @@ class ProfileHandler(webapp2.RequestHandler):
         info = UserInfo(first_name=first_name, last_name=last_name, email=email,
                     user_password=user_password, user_type=user_type, sub=sub,
                     availability=availability)
-        info.put
+        info.put()
 
 
 
