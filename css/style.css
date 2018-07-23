@@ -150,6 +150,15 @@ h2 {
   color:#4d2800;
 }
 
+#navv {
+  padding: 3px;
+  background-color: #ccffcc;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5px;
+}
+
 #directtitle {
   font-size: 20px;
 }
