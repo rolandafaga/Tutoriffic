@@ -14,7 +14,7 @@ class Info(ndb.Model):
     user_type = ndb.StringProperty(required=True)
     sub = ndb.StringProperty(required=True)
     availability = ndb.StringProperty(required=True)
-    
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/homepage.html')
@@ -38,8 +38,19 @@ class ProfileHandler(webapp2.RequestHandler):
 
 
         variables = {
-            ''
+            'first_name': first_name,
+            'last_name': last_name,
+            'email': email,
+            'user_password': user_password,
+            'user_type': user_type,
+            'sub': sub,
+            'availability': availability,
         }
+
+        info = Info(first_name=first_name, last_name=last_name, email=email,
+                    user_password=user_password, user_type=user_type, sub=sub,
+                    availability=availability)
+        info.put()
 
 
 
