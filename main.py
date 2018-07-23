@@ -6,7 +6,15 @@ from google.appengine.ext import ndb
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-
+class Info(ndb.Model):
+    first_name = ndb.StringProperty(required=True)
+    last_name = ndb.StringProperty(required=True)
+    email = ndb.StringProperty(required=True)
+    user_password = ndb.StringProperty(required=True)
+    user_type = ndb.StringProperty(required=True)
+    sub = ndb.StringProperty(required=True)
+    availability = ndb.StringProperty(required=True)
+    
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/homepage.html')
