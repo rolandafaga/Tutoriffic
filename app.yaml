@@ -7,8 +7,8 @@ handlers:
     static_dir: pages
   - url: /js
     static_dir: js
-  - url: /website-styles
-    static_dir: website-styles
+  - url: /css
+    static_dir: css
   - url: /.*
     script: main.app
 
