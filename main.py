@@ -71,9 +71,15 @@ class LogInHandler(webapp2.RequestHandler):
         home_template = jinja_env.get_template('templates/login.html')
         self.response.write(home_template.render())
 
+class FAQHandler(webapp2.RequestHandler):
+    def get(self):
+        home_template = jinja_env.get_template('templates/faq.html')
+        self.response.write(home_template.render())
+
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', ProfileHandler),
     ('/signup', SignUpHandler),
-    ('/login', LogInHandler)
+    ('/login', LogInHandler),
+    ('/faq', FAQHandler)
 ])

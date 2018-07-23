@@ -150,16 +150,40 @@ h2 {
   color:#4d2800;
 }
 
+#navv {
+  padding: 3px;
+  background-color: #ccffcc;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5px;
+}
+
 #directtitle {
   font-size: 20px;
 }
 
+#last {
+  margin-bottom: 20px;
+}
+
 .faqq {
   text-align: left;
-  margin-left: 5%;
+  margin-left: 0%;
+  color: #4d2800;
 }
 
 .faqa {
   text-align: left;
   margin-left: 5%;
+  color: #b35c00;
+}
+
+.question {
+  padding: 3px;
+  background-color: #fff3e6;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5px;
 }
