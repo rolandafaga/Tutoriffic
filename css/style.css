@@ -1,3 +1,14 @@
+#homeLinks {
+  text-align: right;
+}
+
+.navigation {
+  padding: 3px;
+  color: green;
+  background-color: white;
+  text-align: center;
+}
+
 #intro {
   text-align:center;
 }
@@ -6,16 +17,31 @@
   text-align: center;
 }
 
+#about {
+  padding: 10px;
+  color: #8c1aff;
+  background-color: #ccffcc;
+  text-align: center;
+  margin-left:10%;
+  margin-right: 10%;
+}
+
+#aboutTitle {
+  text-align: center;
+}
+
+#aboutContent {
+  text-align: center;
+}
+
 #getStarted {
-  padding: 2px;
+  padding: 10px;
   color: white;
   background-color: green;
-  border: green 2px solid;
   text-align: center;
 
   /*centering the button*/
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-
+    display: inline-flex;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
