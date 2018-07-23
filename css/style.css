@@ -1,12 +1,39 @@
+/**
+
+Home Page CSS
+
+**/
+body {
+  background-color: #ccffcc;
+}
+
+.page {
+  background-color: white;
+  text-align: center;
+  margin-left:5%;
+  margin-right: 5%;
+}
+
 #homeLinks {
   text-align: right;
 }
 
 .navigation {
   padding: 3px;
-  color: green;
-  background-color: white;
+  color: white;
+  background-color: green;
   text-align: center;
+  border: 2px green solid;
+  font-size:20px;
+}
+
+.header {
+  margin-top: 10px;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: hidden;
+  height:250px;
 }
 
 #intro {
@@ -18,12 +45,12 @@
 }
 
 #about {
-  padding: 10px;
   color: #8c1aff;
-  background-color: #ccffcc;
+  padding: 5px;
+  background-color: #fff3e6;
   text-align: center;
-  margin-left:10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #aboutTitle {
@@ -42,6 +69,8 @@
 
   /*centering the button*/
     display: inline-flex;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: 0%;
+    /*transform: translateX(-75%);*/
 }
+
+/*Page*/
