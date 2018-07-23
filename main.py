@@ -38,6 +38,7 @@ class ProfileHandler(webapp2.RequestHandler):
         self.response.write(create_template.render())
 
     def post(self):
+        print("boi")
         profile_template = jinja_env.get_template('templates/profilepage.html')
 
         nickname = self.request.get('username')
@@ -52,10 +53,11 @@ class ProfileHandler(webapp2.RequestHandler):
             'sub': sub,
             'availability': availability,
         }
-
+        print(variables)
         info = UserInfo(nickname=nickname, user_type=user_type, sub=sub,
                     availability=availability)
         info.put()
+        print(profile_template)
 
         self.response.write(profile_template.render(variables))
 
