@@ -26,7 +26,8 @@ class ProfileHandler(webapp2.RequestHandler):
         user_password = self.request.get('password')
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
-        
+        availability = self.request.get('avb')
+
 
         variables = {
             ''
