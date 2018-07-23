@@ -206,15 +206,23 @@ input {
   color: #b35c00;
   font-size: 18px;
   text-align: left;
-  margin-left: 30%;
+  margin-left: 5%;
   margin-top:10px;
 }
 
 input {
-  width: 40%;
+  width: 90%;
 }
 
 select {
-  width:40%;
+  width:90%;
   font-size: 12px;
+}
+
+#signn {
+  background-color: #fff3e6;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
