@@ -71,7 +71,7 @@ class LogInHandler(webapp2.RequestHandler):
 
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
-        home_template = jinja_env.get_template('templates/login.html')
+        home_template = jinja_env.get_template('templates/faq.html')
         self.response.write(home_template.render())
 
 app = webapp2.WSGIApplication([
