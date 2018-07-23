@@ -18,9 +18,22 @@ body {
   text-align: right;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .navigation {
   padding: 3px;
-  color: white;
+  color: #4d2800;
   background-color: green;
   text-align: center;
   border: 2px green solid;
@@ -79,6 +92,10 @@ body {
     display: inline-flex;
     margin-left: 0%;
     /*transform: translateX(-75%);*/
+}
+
+#getStarted:hover {
+  background-color:#4d2800;
 }
 
 /*Page*/
