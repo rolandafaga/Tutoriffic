@@ -1,16 +1,15 @@
 import webapp2
 import jinja2
 import os
+from google.appengine.api import users
 from google.appengine.ext import ndb
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-class Info(ndb.Model):
+class UserInfo(ndb.Model):
     first_name = ndb.StringProperty(required=True)
     last_name = ndb.StringProperty(required=True)
-    email = ndb.StringProperty(required=True)
-    user_password = ndb.StringProperty(required=True)
     user_type = ndb.StringProperty(required=True)
     sub = ndb.StringProperty(required=True)
     availability = ndb.StringProperty(required=True)
@@ -30,8 +29,6 @@ class ProfileHandler(webapp2.RequestHandler):
 
         first_name = self.request.get('fname')
         last_name = self.request.get('lname')
-        email = self.request.get('usermail')
-        user_password = self.request.get('password')
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
         availability = self.request.get('avb')
@@ -40,17 +37,15 @@ class ProfileHandler(webapp2.RequestHandler):
         variables = {
             'first_name': first_name,
             'last_name': last_name,
-            'email': email,
-            'user_password': user_password,
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
         }
 
-        info = Info(first_name=first_name, last_name=last_name, email=email,
+        info = UserInfo(first_name=first_name, last_name=last_name, email=email,
                     user_password=user_password, user_type=user_type, sub=sub,
                     availability=availability)
-        info.put()
+        info.put
 
 
 
