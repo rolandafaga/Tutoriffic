@@ -19,7 +19,18 @@ class ProfileHandler(webapp2.RequestHandler):
 
     def post(self):
         profile_template = jinja_env.get_template('templates/profilepage.html')
-        profile_info = self.request.get('create')
+
+        first_name = self.request.get('fname')
+        last_name = self.request.get('lname')
+        email = self.request.get('usermail')
+        user_password = self.request.get('password')
+        user_type = self.request.get('userclass')
+        sub = self.request.get('subject')
+        
+
+        variables = {
+            ''
+        }
 
 
 
