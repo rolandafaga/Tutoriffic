@@ -37,16 +37,20 @@ body {
 }
 
 #intro {
+  color: #b35c00;
   text-align:center;
 }
 
 #homePageTitle {
+  color:#4d2800;
+  font-size: 75px;
   text-align: center;
+  font-family: "Courier New", Courier, monospace;
 }
 
 #about {
-  color: #8c1aff;
-  padding: 5px;
+  color: #b35c00;
+  padding: 3px;
   background-color: #fff3e6;
   text-align: center;
   margin-left: 5%;
@@ -54,14 +58,18 @@ body {
 }
 
 #aboutTitle {
+  font-size: 20px;
   text-align: center;
 }
 
 #aboutContent {
   text-align: center;
+  padding-bottom: 15px;
 }
 
 #getStarted {
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 10px;
   color: white;
   background-color: green;
