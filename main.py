@@ -61,10 +61,10 @@ class ProfileHandler(webapp2.RequestHandler):
 
         self.response.write(profile_template.render(variables))
 
-class SignUpHandler(webapp2.RequestHandler):
+class StudentProfile(webapp2.RequestHandler):
     def get(self):
-        home_template = jinja_env.get_template('templates/create.html')
-        self.response.write(home_template.render())
+        sprofile_template = jinja_env.get_template('templates/studentprofilepage.html')
+        self.response.write(sprofile_template.render())
 
 class LogInHandler(webapp2.RequestHandler):
     def get(self):
@@ -79,7 +79,7 @@ class FAQHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', ProfileHandler),
-    ('/signup', SignUpHandler),
+    ('/sprofile', StudentProfile),
     ('/login', LogInHandler),
     ('/faq', FAQHandler)
 ])
