@@ -21,6 +21,12 @@ def find_or_create_user():
         return stuser;
     return None
 
+def get_log_inout_url(user):
+    if user:
+        return users.create_logout_url('/')
+    else:
+        return users.create_login_url('/')
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/homepage.html')
@@ -49,15 +55,23 @@ class ProfileHandler(webapp2.RequestHandler):
             'availability': availability,
         }
 
-        info = UserInfo(first_name=first_name, last_name=last_name, email=email,
-                    user_password=user_password, user_type=user_type, sub=sub,
+        info = UserInfo(first_name=first_name, last_name=last_name, user_type=user_type, sub=sub,
                     availability=availability)
         info.put()
 
+class SignUpHandler(webapp2.RequestHandler):
+    def get(self):
+        home_template = jinja_env.get_template('templates/create.html')
+        self.response.write(home_template.render())
 
+class LogInHandler(webapp2.RequestHandler):
+    def get(self):
+        home_template = jinja_env.get_template('templates/login.html')
+        self.response.write(home_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', ProfileHandler),
-
+    ('/signup', SignUpHandler),
+    ('/login', LogInHandler)
 ])
