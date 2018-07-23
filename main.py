@@ -59,6 +59,8 @@ class ProfileHandler(webapp2.RequestHandler):
                     availability=availability)
         info.put()
 
+        self.response.write(profile_template.render(variables))
+
 class SignUpHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/create.html')
