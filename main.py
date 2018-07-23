@@ -6,6 +6,14 @@ from google.appengine.ext import ndb
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
+class Info(ndb.Model):
+    first_name = ndb.StringProperty(required=True)
+    last_name = ndb.StringProperty(required=True)
+    email = ndb.StringProperty(required=True)
+    user_password = ndb.StringProperty(required=True)
+    user_type = ndb.StringProperty(required=True)
+    sub = ndb.StringProperty(required=True)
+    availability = ndb.StringProperty(required=True)
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -30,8 +38,19 @@ class ProfileHandler(webapp2.RequestHandler):
 
 
         variables = {
-            ''
+            'first_name': first_name,
+            'last_name': last_name,
+            'email': email,
+            'user_password': user_password,
+            'user_type': user_type,
+            'sub': sub,
+            'availability': availability,
         }
+
+        info = Info(first_name=first_name, last_name=last_name, email=email,
+                    user_password=user_password, user_type=user_type, sub=sub,
+                    availability=availability)
+        info.put()
 
 
 
