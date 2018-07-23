@@ -54,7 +54,7 @@ a:hover {
 
 .navigation {
   padding: 3px;
-  color: #4d2800;
+  color: #fff3e6;
   background-color: green;
   text-align: center;
   border: 2px green solid;
@@ -105,7 +105,7 @@ a:hover {
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 10px;
-  color: white;
+  color: #fff3e6;
   background-color: green;
   text-align: center;
 
@@ -120,13 +120,18 @@ a:hover {
 }
 
 footer {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 0%;
+  margin-right: 0%;
   background-color: green;
   padding: 5px;
   color: #fff3e6;
   font-size: 15px;
   height: 50px;
+}
+
+.homefoot {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 #foot {
@@ -140,10 +145,13 @@ footer {
 }
 
 /*FAQ Page*/
+h2 {
+  font-size: 35px;
+  color:#4d2800;
+}
+
 #directtitle {
-  text-align: left;
-  margin-left: 5%;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .faqq {
