@@ -79,7 +79,7 @@ class FAQHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', ProfileHandler),
-    ('/signup', SignUpHandler),
+    ('/sprofile', StudentProfile),
     ('/login', LogInHandler),
     ('/faq', FAQHandler)
 ])
