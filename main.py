@@ -9,8 +9,8 @@ jinja_env = jinja2.Environment(
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
-        home_template = jinja_enc.get_template('templates/homepage.html')
-        self.response.write(home_template_template.render())
+        home_template = jinja_env.get_template('templates/homepage.html')
+        self.response.write(home_template.render())
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
@@ -19,5 +19,7 @@ class ProfileHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', )
+    ('/', HomeHandler),
+    ('/create', ProfileHandler),
+
 ])
