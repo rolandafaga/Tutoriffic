@@ -187,3 +187,21 @@ h2 {
   margin-right: 5%;
   margin-bottom: 5px;
 }
+
+/* Log In Page */
+.credential {
+  font-size: 20px;
+  text-align: left;
+  margin-left: 40%;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+input {
+  height: 20px;
+}
