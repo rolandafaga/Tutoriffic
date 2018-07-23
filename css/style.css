@@ -29,6 +29,7 @@ a:visited {
 a:hover {
     color: white;
     text-decoration: none;
+    background-color:#4d2800;
 }
 
 .navigation {
