@@ -29,14 +29,6 @@ def get_log_inout_url(user):
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
 
-        message = None
-        if self.request.get('error'):
-            if self.request.get('error') == 'nouser':
-                message = 'You must be logged in to do that.'
-
-        user = find_or_create_user()
-        log_url = get_log_inout_url(user)
-
         home_template = jinja_env.get_template('templates/homepage.html')
         self.response.write(home_template.render())
 
