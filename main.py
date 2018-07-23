@@ -15,8 +15,7 @@ def find_or_create_user():
         key = ndb.Key('UserInfo', user.user_id())
         stuser = key.get()
         if not stuser:
-            stuser = UserInfo(first_name=user.first_name(),
-                              last_name=user.last_name())
+            stuser = UserInfo(user.nickname())
         stuser.put()
         return stuser;
     return None
@@ -29,6 +28,7 @@ def get_log_inout_url(user):
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
+
         home_template = jinja_env.get_template('templates/homepage.html')
         self.response.write(home_template.render())
 
@@ -38,26 +38,28 @@ class ProfileHandler(webapp2.RequestHandler):
         self.response.write(create_template.render())
 
     def post(self):
+        print("boi")
         profile_template = jinja_env.get_template('templates/profilepage.html')
 
-        first_name = self.request.get('fname')
-        last_name = self.request.get('lname')
+        nickname = self.request.get('username')
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
         availability = self.request.get('avb')
 
 
         variables = {
-            'first_name': first_name,
-            'last_name': last_name,
+            'nickname': nickname,
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
         }
-
-        info = UserInfo(first_name=first_name, last_name=last_name, user_type=user_type, sub=sub,
+        print(variables)
+        info = UserInfo(nickname=nickname, user_type=user_type, sub=sub,
                     availability=availability)
         info.put()
+        print(profile_template)
+
+        self.response.write(profile_template.render(variables))
 
 class SignUpHandler(webapp2.RequestHandler):
     def get(self):
