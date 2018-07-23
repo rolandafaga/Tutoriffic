@@ -18,9 +18,9 @@ class ProfileHandler(webapp2.RequestHandler):
         self.response.write(create_template.render())
 
     def post(self):
-        profile_template = jinja_enc.get_template('templates/profilepage.html')
+        profile_template = jinja_env.get_template('templates/profilepage.html')
 
-        
+
 
 
 app = webapp2.WSGIApplication([
