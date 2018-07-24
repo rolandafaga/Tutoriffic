@@ -191,12 +191,14 @@ h2 {
   text-align: left;
   margin-left: 0%;
   color: #4d2800;
+  font-family: fantasy;
 }
 
 .faqa {
   text-align: left;
   margin-left: 5%;
   color: #b35c00;
+  font-family: Arial Narrow, sans-serif;
 }
 
 .question {
