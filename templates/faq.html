@@ -2,20 +2,24 @@
 <html>
   <head>
     <script src="js/clickEvents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,900" rel="stylesheet">
     <title>TUTORIFFIC - Frequently Asked Questions</title>
   </head>
   <body>
-    <!--<a name="top" id="backtotop"></a>-->
+    <a name="top"></a>
     <div class="page">
     <p id="homeLinks">
       <a class="navigation" href="/">Home</a>
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
-      <a class="navigation" href="/create">Sign Up</a>
-      <a class="navigation" href="/login">Log In</a>
-      <a class="navigation" href="homepage.html">Log Out</a>
+      {% if get_current_user %}
+        <a class="navigation" href="/">Log Out</a>
+      {% else %}
+        <a class="navigation" href="/create">Sign Up</a>
+        <a class="navigation" href="/login">Log In</a>
+      {% endif %}
     </p>
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>
@@ -48,9 +52,10 @@
     <p class="faqa">it's less complete but you should use it anyway</p></div>
     <div class="question"><div class="faqq"><a name="q6">How was TUTORIFFIC developed?</a></div>
     <p class="faqa">it's an in-progress</p></div>
-    <!--<a href="#top">Back to Top</a>-->
   </body>
   <footer>
     <p> <span id="foot">WebApp by: Catalyst </span><span id="contact">Contact Us: fakeappemail@gmail.com</span></p>
   </footer>
+</div>
+<a class="backtotop" href="#top"><img class="back" src="images/back-to-top-button.png"/></a>
 </html>

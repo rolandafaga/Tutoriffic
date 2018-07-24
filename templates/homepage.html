@@ -2,19 +2,28 @@
 <html>
   <head>
     <script src="js/clickEvents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,900" rel="stylesheet">
     <title>TUTORIFFIC - Home</title>
   </head>
+  <header>
+    <a name="top"></a>
+    <img id="title" src="images/title1.png"/>
+  </header>
   <body>
     <div class="page">
     <p id="homeLinks">
       <a class="navigation" href="/">Home</a>
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
-      <a class="navigation" href="/create">Sign Up</a>
-      <a class="navigation" href="/login">Log In</a>
-      <a class="navigation" href="/">Log Out</a>
+      {% if get_current_user %}
+        <a class="navigation" href="/sprofile">Profile</a>
+        <a class="navigation" href="/">Log Out</a>
+      {% else %}
+        <a class="navigation" href="/create">Sign Up</a>
+        <a class="navigation" href="/login">Log In</a>
+      {% endif %}
     </p>
     <div class="header"><img src="images/temp_header.jpg"/></div>
     <h2 id="intro">Welcome to<h2>
@@ -24,10 +33,15 @@
     <p id="aboutContent">
       TUTORIFFIC is an amazing tutoring service that definitely needs to improve its introduction.
     </p> </div>
-    <h3 class="navigation" id="getStarted" href="/create" >GET STARTED</h3> <!--if logged in, link to profile; if not, link to sign in-->
-  </div>
+    {% if get_current_user %}
+    <h3 class="navigation" id="getStarted"> <a id="startt" href="/sprofile">GET STARTED</a></h3>
+    {% else %}
+    <h3 class="navigation" id="getStarted"> <a id="startt" href="/create">GET STARTED</a></h3> <!--if logged in, link to profile; if not, link to sign in-->
+    {% endif %}
   </body>
-  <footer class="homefoot">
+  <footer>
     <p> <span id="foot">WebApp by: Catalyst </span><span id="contact">Contact Us: fakeappemail@gmail.com</span></p>
   </footer>
+</div>
+<a class="backtotop" href="#top"><img class="back" src="images/back-to-top-button.png"/></a>
 </html>

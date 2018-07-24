@@ -13,6 +13,7 @@ body {
   text-align: center;
   margin-left:5%;
   margin-right: 5%;
+  box-shadow: 5px 10px 10px grey;
 }
 
 .profile {
@@ -24,6 +25,17 @@ body {
 
 .name {
   text-decoration: none;
+}
+
+#title {
+  display: inline-block;
+  height: 150px;
+  margin-left: 5%;
+  margin-bottom: -2%;
+}
+
+header {
+  min-height: 140px;
 }
 
 #homeLinks {
@@ -76,6 +88,7 @@ a:hover {
   margin-right: 5%;
   overflow: hidden;
   height:250px;
+  border: 4px green double;
 }
 
 #intro {
@@ -127,6 +140,10 @@ a:hover {
   background-color:#4d2800;
 }
 
+#startt {
+  color: #fff3e6;
+}
+
 footer {
   margin-left: 0%;
   margin-right: 0%;
@@ -135,11 +152,6 @@ footer {
   color: #fff3e6;
   font-size: 15px;
   height: 50px;
-}
-
-.homefoot {
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 #foot {
@@ -232,4 +244,16 @@ select {
   margin-right: 25%;
   padding-top: 2px;
   padding-bottom: 15px;
+}
+
+.backtotop {
+  float: right;
+  position: fixed;
+  bottom: 0em;
+  right: 2.5%;
+  display: none;
+}
+
+.back {
+  width:75px;
 }

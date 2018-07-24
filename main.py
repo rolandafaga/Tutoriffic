@@ -55,25 +55,36 @@ class StudentProfile(webapp2.RequestHandler):
 
 class LogInHandler(webapp2.RequestHandler):
     def get(self):
-        login_template = jinja_env.get_template('templates/login.html')
 
         user = users.get_current_user()
-        if user:
-            nickname = user.nickname()
-            url = users.create_logout_url('/login')
-            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
-                nickname, url)
-            variables = {'user': user,
-                         'url': url
-                         }
+        if not user:
+            loggedout_template = jinja_env.get_template('templates/login.html')
+            values = {
+                'url': users.create_login_url('/create')
+            }
+            self.response.write(loggedout_template.render(values))
         else:
-            url = users.create_login_url('/')
-            greeting = '<a href="{}">Sign in</a>'.format(url)
-            variables = {'user': user,
-                         'url': url
-                         }
+            key = ndb.Key('UserInfo', user.user_id())
+            my_visitor = key.get()
+            if not my_visitor:
+                my_visitor = UserInfo(key=key,
+                                    name=user.nickname(),
+                                    email=user.email(),
+                                    id=user.user_id(),
+                                    page_count=0)
+            my_visitor.page_count += 1
+            my_visitor.put()
 
-        self.response.write(login_template.render(variables))
+            loggedin_template = jinja_env.get_template('templates/create.html')
+            values = {
+                'url': users.create_logout_url('/'),
+                'name': user.nickname(),
+                'email': user.email(),
+                'user_id': user.user_id(),
+                'view_number': my_visitor.page_count
+            }
+
+            self.response.write(loggedin_template.render(values))
 
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
