@@ -8,25 +8,6 @@ from models import UserInfo
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-'''
-@ndb.transactional
-def find_or_create_user():
-    user = users.get_current_user()
-    if user:
-        key = ndb.Key('UserInfo', user.user_id())
-        stuser = key.get()
-        if not stuser:
-            stuser = UserInfo(key=key, nickname=user.nickname())
-        stuser.put()
-        return stuser;
-    return None
-
-def get_log_inout_url(user):
-    if user:
-        return users.create_logout_url('/')
-    else:
-        return users.create_login_url('/')
-'''
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -37,6 +18,7 @@ class HomeHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         create_template = jinja_env.get_template('templates/create.html')
+
         self.response.write(create_template.render())
 
     def post(self):
