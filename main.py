@@ -51,8 +51,11 @@ class ProfileHandler(webapp2.RequestHandler):
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         list_template = jinja_env.get_template('templates/list.html')
-
-        self.response.write(list_template.render())
+        tutors = SearchForm.query().fetch()
+        variables = {
+            'clients': tutors,
+        }
+        self.response.write(list_template.render(variables))
 
 class StudentProfile(webapp2.RequestHandler):
     def get(self):
