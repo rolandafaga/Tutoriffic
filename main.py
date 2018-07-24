@@ -8,7 +8,7 @@ from models import UserInfo
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-
+'''
 @ndb.transactional
 def find_or_create_user():
     user = users.get_current_user()
@@ -26,6 +26,7 @@ def get_log_inout_url(user):
         return users.create_logout_url('/')
     else:
         return users.create_login_url('/')
+'''
 
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
@@ -75,13 +76,19 @@ class LogInHandler(webapp2.RequestHandler):
     def get(self):
         login_template = jinja_env.get_template('templates/login.html')
 
-        if self.request.get('error'):
-            if self.request.get('error') == 'nouser':
-                message = 'You must be logged in to do that.'
+        user = users.get_current_user()
+        if user:
+            nickname = user.nickname()
+            logout_url = users.create_logout_url('/')
+            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
+                nickname, logout_url)
+        else:
+            login_url = users.create_login_url('/')
+            greeting = '<a href="{}">Sign in</a>'.format(login_url)
 
-        user = find_or_create_user()
-        log_url = get_log_inout_url(user)
-
+        variables = {'user': user,
+                     'login_url': login_url
+                     }
 
         self.response.write(login_template.render())
 
