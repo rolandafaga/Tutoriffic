@@ -18,7 +18,6 @@ class HomeHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         create_template = jinja_env.get_template('templates/create.html')
-
         self.response.write(create_template.render())
 
     def post(self):
