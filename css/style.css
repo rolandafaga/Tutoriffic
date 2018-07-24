@@ -230,3 +230,15 @@ select {
   padding-top: 2px;
   padding-bottom: 15px;
 }
+
+.backtotop {
+  float: right;
+  position: fixed;
+  bottom: 0em;
+  right: 2.5%;
+  display: none;
+}
+
+.back {
+  width:75px;
+}
