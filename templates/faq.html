@@ -18,10 +18,10 @@
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
       {% if get_current_user %}
-      <a id = "login_btn" class="navigation" href="/">Log Out</a>
+      <a id = "login_btn" class="navigation" href="{{url}}">Log Out</a>
       {% else %}
       <a class="navigation" href="/create">Search</a>
-      <a id = "logout_btn" class="navigation" href="/login">Log In</a>
+      <a id = "logout_btn" class="navigation" href="{{url}}">Log In</a>
       {% endif %}
     </p>
     </p>
