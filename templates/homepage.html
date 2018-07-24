@@ -15,7 +15,7 @@
       <a class="navigation" href="/">Home</a>
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
-      {% if true %}
+      {% if get_current_user %}
         <a class="navigation" href="/sprofile">Profile</a>
         <a class="navigation" href="/">Log Out</a>
       {% else %}
