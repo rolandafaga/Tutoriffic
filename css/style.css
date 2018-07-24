@@ -229,6 +229,11 @@ background-position: 0 0, 15px 15px;
   height: auto;
 }
 
+.question:hover {
+  border: double;
+  border-color: #b35c00;
+}
+
 /* Log In Page */
 button {
   font-size: 20px;
