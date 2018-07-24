@@ -15,11 +15,11 @@
       <a class="navigation" href="/">Home</a>
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
-      {% if get_current_user %}
-      <a class="navigation" href="/">Log Out</a>
+      {% if user_id %}
+      <a class="navigation" href="{{url}}">Log Out</a>
       {% else %}
       <a class="navigation" href="/create">Search</a>
-      <a class="navigation" href="/login">Log In</a>
+      <a class="navigation" href="{{url}}">Log In</a>
       {% endif %}
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>

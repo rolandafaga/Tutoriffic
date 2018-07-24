@@ -46,7 +46,13 @@ class ProfileHandler(webapp2.RequestHandler):
         info.put()
         print(search_template)
 
-        self.response.write(search_template.render(variables))
+        self.redirect('/list')
+
+class ListHandler(webapp2.RequestHandler):
+    def get(self):
+        list_template = jinja_env.get_template('templates/list.html')
+
+        self.response.write(list_template.render())
 
 class StudentProfile(webapp2.RequestHandler):
     def get(self):
@@ -96,5 +102,6 @@ app = webapp2.WSGIApplication([
     ('/create', ProfileHandler),
     ('/sprofile', StudentProfile),
     ('/login', LogInHandler),
-    ('/faq', FAQHandler)
+    ('/faq', FAQHandler),
+    ('/list', ListHandler),
 ], debug=True)
