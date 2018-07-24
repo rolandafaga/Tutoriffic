@@ -25,6 +25,8 @@ class ProfileHandler(webapp2.RequestHandler):
         print("boi")
         search_template = jinja_env.get_template('templates/create.html')
 
+        first_name = self.request.get('fname')
+        last_name = self.request.get('lname')
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
         availability = self.request.get('avb')
@@ -33,13 +35,15 @@ class ProfileHandler(webapp2.RequestHandler):
 
 
         variables = {
+            'first_name': first_name,
+            'last_name': last_name,
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
             'user_id': user_id
         }
         print(variables)
-        info = SearchForm(user_type=user_type, sub=sub,
+        info = SearchForm(first_name=first_name, last_name=last_name, user_type=user_type, sub=sub,
                     avb=availability, id=user_id)
         info.put()
         print(search_template)
