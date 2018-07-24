@@ -27,6 +27,13 @@ body {
   text-decoration: none;
 }
 
+#title {
+  margin-top:-2%;
+  margin-left: -2%;
+  float:left;
+  height:20px;
+}
+
 #homeLinks {
   text-align: right;
 }
