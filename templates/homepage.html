@@ -29,7 +29,11 @@
     <p id="aboutContent">
       TUTORIFFIC is an amazing tutoring service that definitely needs to improve its introduction.
     </p> </div>
-    <h3 class="navigation" id="getStarted" href="/create" >GET STARTED</h3> <!--if logged in, link to profile; if not, link to sign in-->
+    {% if get_current_user %}
+    <h3 class="navigation" id="getStarted"> <a id="startt" href="/sprofile">GET STARTED</a></h3>
+    {% else %}
+    <h3 class="navigation" id="getStarted"> <a id="startt" href="/create">GET STARTED</a></h3> <!--if logged in, link to profile; if not, link to sign in-->
+    {% endif %}
   </body>
   <footer>
     <p> <span id="foot">WebApp by: Catalyst </span><span id="contact">Contact Us: fakeappemail@gmail.com</span></p>
