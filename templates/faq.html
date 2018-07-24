@@ -14,9 +14,12 @@
       <a class="navigation" href="/">Home</a>
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
-      <a class="navigation" href="/create">Sign Up</a>
-      <a class="navigation" href="/login">Log In</a>
-      <a class="navigation" href="/">Log Out</a>
+      {% if get_current_user %}
+        <a class="navigation" href="/">Log Out</a>
+      {% else %}
+        <a class="navigation" href="/create">Sign Up</a>
+        <a class="navigation" href="/login">Log In</a>
+      {% endif %}
     </p>
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>
