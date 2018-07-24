@@ -31,14 +31,6 @@ class HomeHandler(webapp2.RequestHandler):
     def get(self):
 
         home_template = jinja_env.get_template('templates/homepage.html')
-
-        if self.request.get('error'):
-            if self.request.get('error') == 'nouser':
-                message = 'You must be logged in to do that.'
-
-        user = find_or_create_user()
-        log_url = get_log_inout_url(user)
-
         self.response.write(home_template.render())
 
 class ProfileHandler(webapp2.RequestHandler):
@@ -81,8 +73,17 @@ class StudentProfile(webapp2.RequestHandler):
 
 class LogInHandler(webapp2.RequestHandler):
     def get(self):
-        home_template = jinja_env.get_template('templates/login.html')
-        self.response.write(home_template.render())
+        login_template = jinja_env.get_template('templates/login.html')
+
+        if self.request.get('error'):
+            if self.request.get('error') == 'nouser':
+                message = 'You must be logged in to do that.'
+
+        user = find_or_create_user()
+        log_url = get_log_inout_url(user)
+
+
+        self.response.write(login_template.render())
 
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
