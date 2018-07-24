@@ -110,6 +110,10 @@ a:hover {
   text-align: center;
   margin-left: 5%;
   margin-right: 5%;
+  border-top: 2px dashed green;
+  border-bottom: 1px dashed green;
+  box-shadow: inset 0 -1px 0 0 green, inset 0 1px 0 0 green, 0 1px 0 0 green, 0 -1px 0 0 green;
+  margin-bottom: 1px;
 }
 
 #aboutTitle {
@@ -191,12 +195,14 @@ h2 {
   text-align: left;
   margin-left: 0%;
   color: #4d2800;
+  font-family: fantasy;
 }
 
 .faqa {
   text-align: left;
   margin-left: 5%;
   color: #b35c00;
+  font-family: Arial Narrow, sans-serif;
 }
 
 .question {
