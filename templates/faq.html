@@ -18,10 +18,10 @@
       <a class="navigation" href="/faq">FAQ</a>
             <!--if logged in, show log out button instead-->
       {% if get_current_user %}
-        <a class="navigation" href="/">Log Out</a>
+      <a id = "login_btn" class="navigation" href="/">Log Out</a>
       {% else %}
-        <a class="navigation" href="/create">Search</a>
-        <a class="navigation" href="/login">Log In</a>
+      <a class="navigation" href="/create">Sign Up</a>
+      <a id = "logout_btn" class="navigation" href="/login">Log In</a>
       {% endif %}
     </p>
     </p>
@@ -41,9 +41,7 @@
 
           <!--QUESTIONS AND ANSWERS-->
     <div class="question"><div class="faqq"><a name="q1">Who should sign up for TUTORIFFIC? </a></div>
-    <p class="faqa">We believe that anyone should have easy access to tutoring.</p>
-    <p class="faqa">TUTORIFFIC makes it its mission to provide access to tutoring to anyone who may require it
-      without the constraints of time, money, or distance.
+    <p class="faqa">We believe that anyone should have easy access to tutoring.
       If you are currently a student who is struggling with a subject or someone who is willing to
       volunteer their time, then this website would be perfect for you. </p></div>
     <div class="question"><div class="faqq"><a name="q2"> How do I register? </a></div>
