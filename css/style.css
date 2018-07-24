@@ -176,15 +176,21 @@ h2 {
 
 #navv {
   padding: 3px;
+  font-family: Arial Narrow, sans-serif;
   background-color: #ccffcc;
   text-align: center;
   margin-left: 5%;
   margin-right: 5%;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  border-top: 2px dashed green;
+  border-bottom: 1px dashed green;
+  box-shadow: inset 0 -1px 0 0 green, inset 0 1px 0 0 green, 0 1px 0 0 green, 0 -1px 0 0 green;
 }
 
 #directtitle {
   font-size: 20px;
+  font-family: fantasy;
+  margin-bottom: -2px;
 }
 
 #last {
