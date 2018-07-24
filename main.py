@@ -4,6 +4,7 @@ import os
 from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import UserInfo
+from models import SearchForm
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -22,31 +23,28 @@ class ProfileHandler(webapp2.RequestHandler):
 
     def post(self):
         print("boi")
-        profile_template = jinja_env.get_template('templates/profilepage.html')
+        search_template = jinja_env.get_template('templates/create.html')
 
-        first_name = self.request.get('fname')
-        last_name = self.request.get('lname')
-        nickname = self.request.get('username')
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
         availability = self.request.get('avb')
+        user = users.get_current_user()
+        user_id = user.user_id()
 
 
         variables = {
-            'first_name': first_name,
-            'last_name': last_name,
-            'nickname': nickname,
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
+            'user_id': user_id
         }
         print(variables)
-        info = UserInfo(nickname=nickname, user_type=user_type, sub=sub,
-                    availability=availability)
+        info = SearchForm(user_type=user_type, sub=sub,
+                    avb=availability, id=user_id)
         info.put()
-        print(profile_template)
+        print(search_template)
 
-        self.response.write(profile_template.render(variables))
+        self.response.write(search_template.render(variables))
 
 class StudentProfile(webapp2.RequestHandler):
     def get(self):

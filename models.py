@@ -10,3 +10,4 @@ class SearchForm(ndb.Model):
     sub = ndb.StringProperty(required=True)
     user_type = ndb.StringProperty(required=True)
     avb = ndb.StringProperty(required=True)
+    id = ndb.StringProperty(required=True)
