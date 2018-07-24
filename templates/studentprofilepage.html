@@ -8,11 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,900" rel="stylesheet">
   </head>
   <body>
+    <div class="page">
+    <p id="homeLinks">
+      <a class="navigation" href="/">Home</a>
+      <a class="navigation" href="/faq">FAQ</a>
+            <!--if logged in, show log out button instead-->
+      <a class="navigation" href="/create">Sign Up</a>
+      <a class="navigation" href="/login">Log In</a>
+      <a class="navigation" href="/">Log Out</a>
+    </p>
+    <div class="header"><img src="images/temp_header.jpg"/></div>
     <h1> Your Student Profile </h1>
     <h2> {{first_name}} {{last_name}} </h2>
     <h3> ({{nickname}}) </h3>
     <h3> {{user_type}} </h3>
     <h3> Struggling with {{sub}} </h3>
     <h3> Available during the {{availability}} </h3>
+  </div>
   </body>
 </html>
