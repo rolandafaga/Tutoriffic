@@ -15,6 +15,13 @@ body {
   margin-right: 5%;
 }
 
+.profile {
+  background-color: white;
+  text-align: left;
+  margin-left:5%;
+  margin-right: 5%;
+}
+
 .name {
   text-decoration: none;
 }
