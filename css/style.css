@@ -227,7 +227,7 @@ background-position: 0 0, 15px 15px;
 
 .question:hover {
   border: double;
-  border-color: #b35c00;
+  border-color: #b35c00; 
 }
 
 /* Log In Page */
