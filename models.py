@@ -7,6 +7,9 @@ class UserInfo(ndb.Model):
     page_count = ndb.IntegerProperty(required=True)
 
 class SearchForm(ndb.Model):
+    first_name = ndb.StringProperty()
+    last_name = ndb.StringProperty()
     sub = ndb.StringProperty(required=True)
     user_type = ndb.StringProperty(required=True)
     avb = ndb.StringProperty(required=True)
+    id = ndb.StringProperty(required=True)
