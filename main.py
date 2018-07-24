@@ -23,36 +23,32 @@ class ProfileHandler(webapp2.RequestHandler):
 
     def post(self):
         print("boi")
-        search_template = jinja_env.get_template('templates/list.html')
+        search_template = jinja_env.get_template('templates/create.html')
 
+        first_name = self.request.get('fname')
+        last_name = self.request.get('lname')
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
         availability = self.request.get('avb')
         user = users.get_current_user()
-        name = user.nickname()
         user_id = user.user_id()
 
 
         variables = {
-            'name': name,
+            'first_name': first_name,
+            'last_name': last_name,
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
             'user_id': user_id
         }
         print(variables)
-        info = SearchForm(name=name, user_type=user_type, sub=sub,
+        info = SearchForm(first_name=first_name, last_name=last_name, user_type=user_type, sub=sub,
                     avb=availability, id=user_id)
         info.put()
         print(search_template)
 
-        self.redirect('/list')
-
-class ListHandler(webapp2.RequestHandler):
-    def get(self):
-        list_template = jinja_env.get_template('templates/list.html')
-
-        self.response.write(list_template.render())
+        self.response.write(search_template.render(variables))
 
 class StudentProfile(webapp2.RequestHandler):
     def get(self):
@@ -102,6 +98,5 @@ app = webapp2.WSGIApplication([
     ('/create', ProfileHandler),
     ('/sprofile', StudentProfile),
     ('/login', LogInHandler),
-    ('/faq', FAQHandler),
-    ('/list', ListHandler),
+    ('/faq', FAQHandler)
 ], debug=True)
