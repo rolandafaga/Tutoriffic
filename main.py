@@ -23,17 +23,18 @@ class ProfileHandler(webapp2.RequestHandler):
 
     def post(self):
         print("boi")
-        search_template = jinja_env.get_template('templates/create.html')
+        search_template = jinja_env.get_template('templates/list.html')
 
         user_type = self.request.get('userclass')
         sub = self.request.get('subject')
         availability = self.request.get('avb')
         user = users.get_current_user()
+        name = user.nickname()
         user_id = user.user_id()
 
 
         variables = {
-            'name': user.nickname(),
+            'name': name,
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
