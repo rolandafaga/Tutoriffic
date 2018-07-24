@@ -8,5 +8,5 @@ class UserInfo(ndb.Model):
 
 class SearchForm(ndb.Model):
     sub = ndb.StringProperty(required=True)
-    user_type = ndb.StringProperty(requied=True)
+    user_type = ndb.StringProperty(required=True)
     avb = ndb.StringProperty(required=True)
