@@ -53,7 +53,7 @@ class ProfileHandler(webapp2.RequestHandler):
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         list_template = jinja_env.get_template('templates/list.html')
-        tutors = SearchForm.query().fetch()
+        tutors = SearchForm.query(SearchForm.user_type == "tutor").fetch()
         variables = {
             'clients': tutors,
         }
@@ -107,5 +107,6 @@ app = webapp2.WSGIApplication([
     ('/create', ProfileHandler),
     ('/sprofile', StudentProfile),
     ('/login', LogInHandler),
-    ('/faq', FAQHandler)
+    ('/faq', FAQHandler),
+    ('/list', ListHandler)
 ], debug=True)
