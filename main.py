@@ -9,20 +9,6 @@ from models import SearchForm
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-# def log_button():
-#     user = users.get_current_user()
-#     if not user:
-#         values = {
-#             'url': users.create_login_url('/create'),
-#             'login_button': 'show',
-#             'logout_button': 'hide'
-#         }
-#     else:
-#             values = {
-#             'url': users.create_logout_url('/'),
-#             'login_button': 'hide',
-#             'logout_button': 'show',
-#         }
 
 def check_user():
     user = users.get_current_user()
@@ -35,7 +21,7 @@ def check_user():
             stuser = UserInfo(key=key,
                           name=user.nickname(),
                           email=user.email(),
-                          page_view_count=0)
+                          page_count=0)
         stuser.page_count += 1
         stuser.put()
         return stuser;
@@ -109,48 +95,6 @@ class ListHandler(webapp2.RequestHandler):
         }
         self.response.write(list_template.render(variables))
 
-class LogInHandler(webapp2.RequestHandler):
-    def get(self):
-
-        user = users.get_current_user()
-        if not user:
-            loggedout_template = jinja_env.get_template('templates/login.html')
-            values = {
-                'url': users.create_login_url('/create'),
-                'login_button': 'show',
-                'logout_button': 'hide'
-            }
-            self.response.write(loggedout_template.render(values))
-        else:
-            key = ndb.Key('UserInfo', user.user_id())
-            my_visitor = key.get()
-            if not my_visitor:
-                my_visitor = UserInfo(key=key,
-                                    name=user.nickname(),
-                                    email=user.email(),
-                                    id=user.user_id(),
-                                    page_count=0)
-            my_visitor.page_count += 1
-            my_visitor.put()
-
-
-            self.redirect('/create')
-
-            loggedin_template = jinja_env.get_template('templates/create.html')
-            values = {
-                'url': users.create_logout_url('/'),
-                'name': user.nickname(),
-                'email': user.email(),
-                'user_id': user.user_id(),
-                'view_number': my_visitor.page_count,
-                'login_button': 'hide',
-                'logout_button': 'show',
-            }
-
-            self.response.write(loggedin_template.render(values))
-
-
-
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/faq.html')
@@ -171,7 +115,7 @@ class FAQHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
     ('/create', ProfileHandler),
-    ('/login', LogInHandler),
+    #('/login', LogInHandler),
     ('/faq', FAQHandler),
     ('/list', ListHandler)
 ], debug=True)
