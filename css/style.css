@@ -130,6 +130,7 @@ a:hover {
 }
 
 .astep {
+  margin-top: 10px;
   width:22.5%;
   min-width: 150px;
 }
