@@ -9,20 +9,20 @@ from models import SearchForm
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-def log_button():
-    user = users.get_current_user()
-    if not user:
-        values = {
-            'url': users.create_login_url('/create'),
-            'login_button': 'show',
-            'logout_button': 'hide'
-        }
-    else:
-            values = {
-            'url': users.create_logout_url('/'),
-            'login_button': 'hide',
-            'logout_button': 'show',
-        }
+# def log_button():
+#     user = users.get_current_user()
+#     if not user:
+#         values = {
+#             'url': users.create_login_url('/create'),
+#             'login_button': 'show',
+#             'logout_button': 'hide'
+#         }
+#     else:
+#             values = {
+#             'url': users.create_logout_url('/'),
+#             'login_button': 'hide',
+#             'logout_button': 'show',
+#         }
 
 def check_user():
     user = users.get_current_user()
@@ -43,7 +43,18 @@ def check_user():
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/homepage.html')
-        self.response.write(home_template.render(values))
+        user = check_user()
+        if not user:
+            variables = {
+                'login_button': 'show',
+                'logout_button': 'hide'
+            }
+        else:
+            variables = {
+                'login_button': 'hide',
+                'logout_button': 'show'
+            }
+        self.response.write(home_template.render(variables))
 
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
@@ -55,7 +66,7 @@ class ProfileHandler(webapp2.RequestHandler):
         variables = {
             'login_button': 'hide',
             'logout_button': 'show',
-            'url': user.create_logout_url()
+            'url': users.create_logout_url('/'),
         }
         self.response.write(create_template.render(variables))
 
@@ -95,12 +106,11 @@ class ListHandler(webapp2.RequestHandler):
             'clients': tutors,
         }
         self.response.write(list_template.render(variables))
-        self.response.write(list_template.render(values))
 
 class StudentProfile(webapp2.RequestHandler):
     def get(self):
         sprofile_template = jinja_env.get_template('templates/studentprofilepage.html')
-        self.response.write(sprofile_template.render(values))
+        self.response.write(sprofile_template.render())
 
 class LogInHandler(webapp2.RequestHandler):
     def get(self):
@@ -147,7 +157,7 @@ class LogInHandler(webapp2.RequestHandler):
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/faq.html')
-        self.response.write(home_template.render(values))
+        self.response.write(home_template.render())
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
