@@ -202,11 +202,14 @@ h2 {
   color:#4d2800;
 }
 
-#test {
+#hospitable {
   color: #b35c00;
   font-family: Arial Narrow, sans-serif;;
   font-size: 20px;
   margin-top: 0px;
+}
+
+.test {
   margin-left:50%;
   transform: translateX(-50%);
   text-align: center;
@@ -216,7 +219,7 @@ h2 {
   animation: type 4s steps(60, end);
 }
 
-#test:nth-child(2){
+.test:nth-child(2){
   animation: type2 8s steps(60, end);
 }
 
