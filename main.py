@@ -152,7 +152,19 @@ class LogInHandler(webapp2.RequestHandler):
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
         home_template = jinja_env.get_template('templates/faq.html')
-        self.response.write(home_template.render())
+        user = check_user()
+        if not user:
+            variables = {
+                'login_button': 'show',
+                'logout_button': 'hide',
+            }
+        else:
+            variables = {
+                'login_button': 'hide',
+                'logout_button': 'show',
+                'url': users.create_logout_url('/'),
+            }
+        self.response.write(home_template.render(variables))
 
 app = webapp2.WSGIApplication([
     ('/', HomeHandler),
