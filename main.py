@@ -5,6 +5,7 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from models import UserInfo
 from models import SearchForm
+from google.appengine.api import mail
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
