@@ -107,11 +107,6 @@ class ListHandler(webapp2.RequestHandler):
         }
         self.response.write(list_template.render(variables))
 
-class StudentProfile(webapp2.RequestHandler):
-    def get(self):
-        sprofile_template = jinja_env.get_template('templates/studentprofilepage.html')
-        self.response.write(sprofile_template.render())
-
 class LogInHandler(webapp2.RequestHandler):
     def get(self):
 
