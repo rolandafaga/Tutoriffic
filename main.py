@@ -47,7 +47,8 @@ class HomeHandler(webapp2.RequestHandler):
         if not user:
             variables = {
                 'login_button': 'show',
-                'logout_button': 'hide'
+                'logout_button': 'hide',
+                'url': users.create_login_url('/create')
             }
         else:
             variables = {
@@ -62,7 +63,7 @@ class ProfileHandler(webapp2.RequestHandler):
         create_template = jinja_env.get_template('templates/create.html')
         user = check_user()
         if not user:
-            self.redirect('/login')
+            self.redirect(users.create_login_url('/create'))
 
         variables = {
             'login_button': 'hide',
@@ -135,18 +136,18 @@ class LogInHandler(webapp2.RequestHandler):
 
             self.redirect('/create')
 
-            # loggedin_template = jinja_env.get_template('templates/create.html')
-            # values = {
-            #     'url': users.create_logout_url('/'),
-            #     'name': user.nickname(),
-            #     'email': user.email(),
-            #     'user_id': user.user_id(),
-            #     'view_number': my_visitor.page_count,
-            #     'login_button': 'hide',
-            #     'logout_button': 'show',
-            # }
-            #
-            # self.response.write(loggedin_template.render(values))
+            loggedin_template = jinja_env.get_template('templates/create.html')
+            values = {
+                'url': users.create_logout_url('/'),
+                'name': user.nickname(),
+                'email': user.email(),
+                'user_id': user.user_id(),
+                'view_number': my_visitor.page_count,
+                'login_button': 'hide',
+                'logout_button': 'show',
+            }
+
+            self.response.write(loggedin_template.render(values))
 
 
 
