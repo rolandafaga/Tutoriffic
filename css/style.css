@@ -129,6 +129,11 @@ a:hover {
   padding-bottom: 15px;
 }
 
+.astep {
+  width:22.5%;
+  min-width: 150px;
+}
+
 #getStarted {
   margin-top: 30px;
   margin-bottom: 30px;
