@@ -12,3 +12,4 @@ class SearchForm(ndb.Model):
     user_type = ndb.StringProperty(required=True)
     avb = ndb.StringProperty(required=True)
     id = ndb.StringProperty(required=True)
+    email = ndb.StringProperty(required=True)

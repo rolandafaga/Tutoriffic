@@ -70,6 +70,7 @@ class ProfileHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         user_id = user.user_id()
         name = user.nickname()
+        email = user.email()
 
 
         variables = {
@@ -78,10 +79,11 @@ class ProfileHandler(webapp2.RequestHandler):
             'sub': sub,
             'availability': availability,
             'user_id': user_id,
+            'email': email,
         }
         print(variables)
         info = SearchForm(name=name, user_type=user_type, sub=sub,
-                    avb=availability, id=user_id)
+                    avb=availability, id=user_id, email=email)
         info.put()
         print(search_template)
 
@@ -99,7 +101,9 @@ class ListHandler(webapp2.RequestHandler):
             self.response.out.write('Page not found')
             return
 
-        tutors = SearchForm.query(SearchForm.user_type != temp_name.user_type).fetch()
+        tutors = SearchForm.query(SearchForm.user_type != temp_name.user_type,
+                                  SearchForm.sub == temp_name.sub,
+                                  SearchForm.avb == temp_name.avb).fetch()
         variables = {
             'clients': tutors,
 
