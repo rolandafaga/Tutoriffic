@@ -103,6 +103,8 @@ class FAQHandler(webapp2.RequestHandler):
             variables = {
                 'login_button': 'show',
                 'logout_button': 'hide',
+                'url': users.create_login_url('/create')
+
             }
         else:
             variables = {
