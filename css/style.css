@@ -223,7 +223,7 @@ h2 {
   animation: type2 8s steps(60, end);
 }
 
-span{
+.test span{
   animation: blink 1s infinite;
 }
 
