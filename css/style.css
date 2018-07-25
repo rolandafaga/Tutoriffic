@@ -136,6 +136,10 @@ a:hover {
   min-width: 150px;
 }
 
+#logo {
+  width: 75%;
+}
+
 #crop {
   width: 22.25%;
 }
