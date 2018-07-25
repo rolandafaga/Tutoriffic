@@ -130,6 +130,16 @@ a:hover {
   padding-bottom: 15px;
 }
 
+#steps {
+    background-color: white;
+    display: inline-block;
+    opacity: 1.0;
+}
+
+.astep:hover {
+    opacity: 1.0;
+}
+
 .astep {
   margin-top: 10px;
   width:22.5%;
