@@ -280,3 +280,11 @@ select {
 .back {
   width:75px;
 }
+
+.show {
+  display: inline-block;
+}
+
+.hide {
+  display: none;
+}

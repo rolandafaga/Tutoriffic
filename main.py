@@ -35,6 +35,9 @@ class HomeHandler(webapp2.RequestHandler):
 class ProfileHandler(webapp2.RequestHandler):
     def get(self):
         create_template = jinja_env.get_template('templates/create.html')
+        user = check_user()
+        if not user:
+            self.redirect('/login')
         self.response.write(create_template.render())
 
     def post(self):
@@ -85,7 +88,9 @@ class LogInHandler(webapp2.RequestHandler):
         if not user:
             loggedout_template = jinja_env.get_template('templates/login.html')
             values = {
-                'url': users.create_login_url('/create')
+                'url': users.create_login_url('/create'),
+                'login_button': 'hide',
+                'logout_button': 'show'
             }
             self.response.write(loggedout_template.render(values))
         else:
@@ -99,6 +104,10 @@ class LogInHandler(webapp2.RequestHandler):
                                     page_count=0)
             my_visitor.page_count += 1
             my_visitor.put()
+            url = users.create_logout_url('/')
+
+
+            #self.redirect('/create')
 
             loggedin_template = jinja_env.get_template('templates/create.html')
             values = {
@@ -106,7 +115,9 @@ class LogInHandler(webapp2.RequestHandler):
                 'name': user.nickname(),
                 'email': user.email(),
                 'user_id': user.user_id(),
-                'view_number': my_visitor.page_count
+                'view_number': my_visitor.page_count,
+                'login_button': 'show',
+                'logout_button': 'hide',
             }
 
             self.response.write(loggedin_template.render(values))
