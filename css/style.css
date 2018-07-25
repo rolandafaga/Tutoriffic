@@ -79,6 +79,7 @@ a:hover {
   text-align: center;
   border: 2px green solid;
   font-size:20px;
+  transition: 0.3s;
 }
 
 .header {
