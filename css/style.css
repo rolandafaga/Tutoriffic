@@ -137,7 +137,7 @@ a:hover {
 }
 
 .astep:hover {
-    opacity: 1.0;
+    opacity: 0.5;
 }
 
 .astep {
@@ -200,6 +200,42 @@ footer {
 h2 {
   font-size: 35px;
   color:#4d2800;
+}
+
+#test {
+  color: #b35c00;
+  font-family: Arial Narrow, sans-serif;;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-left:50%;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 28em;
+  animation: type 4s steps(60, end);
+}
+
+#test:nth-child(2){
+  animation: type2 8s steps(60, end);
+}
+
+span{
+  animation: blink 1s infinite;
+}
+
+@keyframes type{
+  from { width: 0; }
+}
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; }
+}
+
+@keyframes blink{
+  to{opacity: .0;}
 }
 
 #navv {
