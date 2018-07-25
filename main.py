@@ -10,6 +10,22 @@ jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
 
+def check_user():
+    user = users.get_current_user()
+    if not user:
+        return None
+    else:
+        key = ndb.Key('UserInfo', user.user_id())
+        stuser = key.get()
+        if not stuser:
+            stuser = UserInfo(key=key,
+                          name=user.nickname(),
+                          email=user.email(),
+                          page_view_count=0)
+        stuser.page_count += 1
+        stuser.put()
+        return stuser;
+
 class HomeHandler(webapp2.RequestHandler):
     def get(self):
 
