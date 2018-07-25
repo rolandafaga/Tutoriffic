@@ -85,14 +85,24 @@ class ProfileHandler(webapp2.RequestHandler):
         info.put()
         print(search_template)
 
-        self.redirect('/list')
+        self.redirect('/list?id=%s'% info.key.urlsafe())
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
         list_template = jinja_env.get_template('templates/list.html')
-        tutors = SearchForm.query(SearchForm.user_type == "tutor").fetch()
+        id = self.request.get('id')
+        key = ndb.Key(urlsafe=id)
+        temp_name = key.get()
+
+        if not temp_name:
+            self.error(404)
+            self.response.out.write('Page not found')
+            return
+
+        tutors = SearchForm.query(SearchForm.user_type != temp_name.user_type).fetch()
         variables = {
             'clients': tutors,
+
         }
         self.response.write(list_template.render(variables))
 
