@@ -52,7 +52,8 @@ class HomeHandler(webapp2.RequestHandler):
         else:
             variables = {
                 'login_button': 'hide',
-                'logout_button': 'show'
+                'logout_button': 'show',
+                'url': users.create_logout_url('/')
             }
         self.response.write(home_template.render(variables))
 
