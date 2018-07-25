@@ -38,7 +38,12 @@ class ProfileHandler(webapp2.RequestHandler):
         user = check_user()
         if not user:
             self.redirect('/login')
-        self.response.write(create_template.render())
+
+        variables = {
+            'login_button': 'hide',
+            'logout_button': 'show',
+        }
+        self.response.write(create_template.render(variables))
 
     def post(self):
         print("boi")
@@ -57,7 +62,7 @@ class ProfileHandler(webapp2.RequestHandler):
             'user_type': user_type,
             'sub': sub,
             'availability': availability,
-            'user_id': user_id
+            'user_id': user_id,
         }
         print(variables)
         info = SearchForm(name=name, user_type=user_type, sub=sub,
@@ -89,8 +94,8 @@ class LogInHandler(webapp2.RequestHandler):
             loggedout_template = jinja_env.get_template('templates/login.html')
             values = {
                 'url': users.create_login_url('/create'),
-                'login_button': 'hide',
-                'logout_button': 'show'
+                'login_button': 'show',
+                'logout_button': 'hide'
             }
             self.response.write(loggedout_template.render(values))
         else:
@@ -107,20 +112,21 @@ class LogInHandler(webapp2.RequestHandler):
             url = users.create_logout_url('/')
 
 
-            #self.redirect('/create')
+            self.redirect('/create')
 
-            loggedin_template = jinja_env.get_template('templates/create.html')
-            values = {
-                'url': users.create_logout_url('/'),
-                'name': user.nickname(),
-                'email': user.email(),
-                'user_id': user.user_id(),
-                'view_number': my_visitor.page_count,
-                'login_button': 'show',
-                'logout_button': 'hide',
-            }
+            # loggedin_template = jinja_env.get_template('templates/create.html')
+            # values = {
+            #     'url': users.create_logout_url('/'),
+            #     'name': user.nickname(),
+            #     'email': user.email(),
+            #     'user_id': user.user_id(),
+            #     'view_number': my_visitor.page_count,
+            #     'login_button': 'hide',
+            #     'logout_button': 'show',
+            # }
+            #
+            # self.response.write(loggedin_template.render(values))
 
-            self.response.write(loggedin_template.render(values))
 
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
