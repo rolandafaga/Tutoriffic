@@ -13,7 +13,12 @@
       {{info.name}} is a {{info.user_type}}.
       He/she is available in the {{info.avb}}.
       Suject: {{info.sub.capitalize()}}
-      <a href="{{info.email}}">Contact</a>
+      Send an email!
+      <form method='post'>
+        <input value='{{info.email}}' name='email' hidden>
+        <input name='body'>
+        <button>Send</button>
+      </form>
       </p>
     </li>
     {% endfor %}
