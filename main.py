@@ -9,20 +9,20 @@ from models import SearchForm
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
 )
-
-user = users.get_current_user()
-if not user:
-    values = {
-        'url': users.create_login_url('/create'),
-        'login_button': 'show',
-        'logout_button': 'hide'
-    }
-else:
+def log_button():
+    user = users.get_current_user()
+    if not user:
         values = {
-        'url': users.create_logout_url('/'),
-        'login_button': 'hide',
-        'logout_button': 'show',
-    }
+            'url': users.create_login_url('/create'),
+            'login_button': 'show',
+            'logout_button': 'hide'
+        }
+    else:
+            values = {
+            'url': users.create_logout_url('/'),
+            'login_button': 'hide',
+            'logout_button': 'show',
+        }
 
 def check_user():
     user = users.get_current_user()
@@ -55,6 +55,7 @@ class ProfileHandler(webapp2.RequestHandler):
         variables = {
             'login_button': 'hide',
             'logout_button': 'show',
+            'url': user.create_logout_url()
         }
         self.response.write(create_template.render(variables))
 
@@ -124,7 +125,6 @@ class LogInHandler(webapp2.RequestHandler):
                                     page_count=0)
             my_visitor.page_count += 1
             my_visitor.put()
-            url = users.create_logout_url('/')
 
 
             self.redirect('/create')
