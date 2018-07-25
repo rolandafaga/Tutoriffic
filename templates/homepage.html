@@ -29,8 +29,14 @@
     <p id="aboutContent">
       TUTORIFFIC is an amazing tutoring service that definitely needs to improve its introduction.
     </p> </div>
+    <div id="steps">
+      <img class="astep" src="images/step1.png"/>
+      <img class="astep" src="images/step2.png"/>
+      <img class="astep" src="images/step3.png"/>
+      <img class="astep" src="images/step4.png"/>
+    </div>
     {% if get_current_user %}
-    <h3 class="navigation" id="getStarted"> <a id="startt" href="/sprofile">GET STARTED</a></h3>
+    <h3 class="navigation" id="getStarted"> <a id="startt" href="/login">GET STARTED</a></h3>
     {% else %}
     <h3 class="navigation" id="getStarted"> <a id="startt" href="/create">GET STARTED</a></h3> <!--if logged in, link to profile; if not, link to sign in-->
     {% endif %}
