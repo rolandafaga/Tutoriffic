@@ -38,15 +38,10 @@
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>
     <h2 class="test">Search Results<span>|</span></h2>
-    {%for info in clients %}
-      <script>append("1",clients)</script>
-    {% endfor%}
-    <div id="noresult"><script>
-    ifNone(clients);
-    </script></div>
 
     <ul>
     {% for info in clients %}
+      <script>addTo("hi")</script>
       <div id="userinfo">
       <img id="dp" src="images/profilepic1.png"/>
       <div><span id="namee">{{info.name}}</span><span id="stutor"> {{info.user_type}}</span></div>
@@ -86,6 +81,9 @@
     </div>
     {% endfor %}
   </ul>
+  <div id="noresult"><script>
+    ifNone();
+  </script></div>
   </body>
   <footer>
   <p> <span id="foot">WebApp by: Catalyst </span><span id="contact">Contact Us: fakeappemail@gmail.com</span></p>
