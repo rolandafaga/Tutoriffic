@@ -141,7 +141,6 @@ class ListHandler(webapp2.RequestHandler):
         temp_name = key.get()
         sender = temp_name.email
         sender_name = temp_name.name
-        tutoriffic_email = "tutoriffic-catalyst@appspot.gserviceaccount.com"
         receiver_mail = self.request.get('email')
         receiver_name = self.request.get('name')
         subject = "A Tutoriffic user messaged you!"
