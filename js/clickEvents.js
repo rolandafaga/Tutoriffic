@@ -1,4 +1,3 @@
-console.log("work?")
 window.onload = function() {
 			// Show or hide the sticky footer button
 			$(window).scroll(function() {
@@ -19,4 +18,15 @@ window.onload = function() {
 
 function mailSent() {
 	alert('Your message is sending. You should see the message in your inbox.');
+}
+
+function ifNone() {
+	document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
+
+	if (len(clients) == 0) {
+		document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
+	}
+	else {
+		document.write(clients);
+	}
 }
