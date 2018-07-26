@@ -16,3 +16,7 @@ window.onload = function() {
 				$('html, body').animate({scrollTop: 0}, 300);
 			})
 		};
+
+function mailSent() {
+	alert('Your message is sending. You should see the message in your inbox.');
+}

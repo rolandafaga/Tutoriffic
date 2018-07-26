@@ -97,6 +97,7 @@ class ListHandler(webapp2.RequestHandler):
         id = self.request.get('id')
         key = ndb.Key(urlsafe=id)
         temp_name = key.get()
+        if not temp_name:
             self.error(404)
             self.response.out.write('Page not found')
             return
