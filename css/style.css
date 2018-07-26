@@ -345,3 +345,25 @@ select {
 .hide {
   display: none;
 }
+
+/* Search Results */
+
+#userinfo {
+  text-align: left;
+  position:relative;
+  background-color: #fff3e6;
+  margin-right:5%;
+  margin-bottom: 15px;
+}
+
+#dp {
+  height:150px;
+  float:left;
+  padding-right:10px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#namee {
+  font-family: cursive;
+}

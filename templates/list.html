@@ -24,21 +24,21 @@
             <a class="{{login_button}} navigation" href="{{url}}">Log in</a>
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>
+    <h2 class="test">Search Results<span>|</span></h2>
     <ul>
     {% for info in clients %}
-    <li>
-      <p>
-      {{info.name}} is a {{info.user_type}}.
-      He/she is available in the {{info.avb}}.
-      Subject: {{info.sub.capitalize()}}
+      <div id="userinfo">
+      <img id="dp" src="images/profilepic1.jpg"/>
+      <div><span id="namee">{{info.name}}</span> <span>{{info.user_type}}</span></div>
+      <div><span>Available: </span><span>{{info.avb}}</span></div>
+      <div><span>Subject: </span><span>{{info.sub.capitalize()}}</span></div>
       Send an email!
       <form method='post'>
         <input value='{{info.email}}' name='email' hidden>
         <input name='body'>
         <button>Send</button>
       </form>
-      </p>
-    </li>
+    </div>
     {% endfor %}
   </ul>
   </body>
