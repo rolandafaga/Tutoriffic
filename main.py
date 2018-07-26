@@ -130,7 +130,9 @@ class ListHandler(webapp2.RequestHandler):
             }
         self.response.write(list_template.render(variables))
     def post(self):
+        print("@@@@###$$$")
         print(self.request.get('email'))
+        print("Hello!")
         id = self.request.get('id')
         key = ndb.Key(urlsafe=id)
         temp_name = key.get()
