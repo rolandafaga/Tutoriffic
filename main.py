@@ -6,7 +6,7 @@ from google.appengine.ext import ndb
 from models import UserInfo
 from models import SearchForm
 from google.appengine.api import mail
-import win32api
+
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -129,15 +129,15 @@ class ListHandler(webapp2.RequestHandler):
         key = ndb.Key(urlsafe=id)
         temp_name = key.get()
         sender = temp_name.email
+        sender_name = temp_name.name
+        tutoriffic_email = "tutoriffic-catalyst@appspot.gserviceaccount.com"
         receiver_mail = self.request.get('email')
         receiver_name = self.request.get('name')
         subject = "A Tutoriffic user messaged you!"
         body = self.request.get('body')
 
         mail.send_mail(sender, receiver_mail, subject, body)
-
         self.redirect('/')
-        win32api.MessageBox(0, 'Message Sent to %s!', 'Email Alert' % receiver_name)
         #mail.send_mail(sender=temp_name.email, to=self.request.get('name') <self.request.get('email')>, subject="A Tutoriffic user messaged you!", body=self.request.get('body'))
 
 
