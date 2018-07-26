@@ -41,6 +41,7 @@
 
     <ul>
     {% for info in clients %}
+    <form method='post'>
       <script>addTo("hi")</script>
       <div id="userinfo">
       <img id="dp" src="images/profilepic1.png"/>
@@ -60,10 +61,8 @@
               <h4 class="modal-title">Send Email to {{info.name}}</h4>
             </div>
             <div class="modal-body">
-              <form method='post'>
               <input id="emailbox" class="email" value='{{info.email}}' name='email' hidden>
               <input name='body'>
-            </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal" onclick=mailSent()>Send</button>
@@ -81,6 +80,7 @@
       </form>
 -->
     </div>
+  </form>
     {% endfor %}
   </ul>
   <div id="noresult"><script>
