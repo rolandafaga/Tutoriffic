@@ -23,7 +23,7 @@ function mailSent() {
 function ifNone() {
 	document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
 
-	if (len(clients) == 0) {
+	if (clients.length) {
 		document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
 	}
 	else {
