@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <script src="js/clickEvents.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,900" rel="stylesheet">
     <meta charset="utf-8">
     <title>Matches</title>
-    <link rel="stylesheet" href="/css/style.css">
   </head>
+  <header>
+    <a name="top"></a>
+    <a href='/'><img id="title" src="images/title1.png"/></a>
+  </header>
   <body>
+    <a name="top"></a>
+    <div class="page">
+    <p id="homeLinks">
+      <a class="navigation" href="/">Home</a>
+      <a class="navigation" href="/faq">FAQ</a>
+      <a class="navigation" href="/create">Search</a>
+            <!--if logged in, show log out button instead-->
+            <a class="{{logout_button}} navigation" href="{{url}}">Log Out</a>
+            <a class="{{login_button}} navigation" href="{{url}}">Log in</a>
+    </p>
+    <div class="header"><img src="images/temp_header.jpg"></img></div>
     <ul>
     {% for info in clients %}
     <li>
@@ -24,4 +42,9 @@
     {% endfor %}
   </ul>
   </body>
+  <footer>
+  <p> <span id="foot">WebApp by: Catalyst </span><span id="contact">Contact Us: fakeappemail@gmail.com</span></p>
+  </footer>
+  </div>
+  <a class="backtotop" href="#top"><img class="back" src="images/back-to-top-button.png"/></a>
 </html>

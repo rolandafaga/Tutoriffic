@@ -105,10 +105,22 @@ class ListHandler(webapp2.RequestHandler):
         tutors = SearchForm.query(SearchForm.user_type != temp_name.user_type,
                                   SearchForm.sub == temp_name.sub,
                                   SearchForm.avb == temp_name.avb).fetch()
-        variables = {
-            'clients': tutors,
 
-        }
+        user = check_user()
+        if not user:
+            variables = {
+                'login_button': 'show',
+                'logout_button': 'hide',
+                'url': users.create_login_url('/create'),
+                'clients': tutors,
+            }
+        else:
+            variables = {
+                'login_button': 'hide',
+                'logout_button': 'show',
+                'url': users.create_logout_url('/'),
+                'clients': tutors,
+            }
         self.response.write(list_template.render(variables))
     def post(self):
         print(self.request.get('email'))
