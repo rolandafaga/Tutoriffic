@@ -6,6 +6,7 @@ from google.appengine.ext import ndb
 from models import UserInfo
 from models import SearchForm
 from google.appengine.api import mail
+import ctypes
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__))
@@ -113,6 +114,8 @@ class ListHandler(webapp2.RequestHandler):
     def post(self):
         print(self.request.get('email'))
         mail.send_mail(sender="temp_name.email", to=self.request.get('email'), subject="A Tutoriffic user messaged you!", body="""body.get()""")
+        ctypes.windll.user32.MessageBoxW(0, "Message sent!", "Email Alert", 1)
+
 
 class FAQHandler(webapp2.RequestHandler):
     def get(self):
