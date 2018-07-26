@@ -117,7 +117,6 @@ class ListHandler(webapp2.RequestHandler):
         tutors = SearchForm.query(SearchForm.user_type != temp_name.user_type,
                                   SearchForm.sub == temp_name.sub,
                                   SearchForm.avb == temp_name.avb).fetch()
-        print(tutors[0])
 
         user = check_user()
         if not user:
