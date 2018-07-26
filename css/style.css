@@ -362,6 +362,9 @@ select {
   padding-right:10px;
   margin-top: 5px;
   margin-left: 5px;
+  background-color: #5DD4C0;
+  margin-right: 15px;
+  border-radius: 20px;
 }
 
 #namee {
@@ -394,7 +397,7 @@ select {
   font-size: 30px;
   display: inline-flex;
 
-  padding: 10px;
+  padding-top: 10px;
   color: #fff3e6;
   background-color: green;
   text-align: center;
