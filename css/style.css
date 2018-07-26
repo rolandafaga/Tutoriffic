@@ -422,3 +422,8 @@ select {
   font-size: 25px;
   padding-bottom: 10px;
 }
+
+#send_button {
+  display: flex;
+  justify-content: center;
+}
