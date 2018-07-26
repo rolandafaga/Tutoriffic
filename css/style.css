@@ -6,6 +6,7 @@ Home Page CSS
 body {
   background-color: #ccffcc;
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 100%;
 }
 
 .page {
@@ -365,5 +366,19 @@ select {
 }
 
 #namee {
-  font-family: cursive;
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 220%;
+}
+
+#stutor {
+  font-family: ;
+  font-size: ;
+}
+
+.characteristic {
+
+}
+
+.infor {
+
 }
