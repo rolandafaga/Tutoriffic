@@ -124,6 +124,9 @@ class ListHandler(webapp2.RequestHandler):
         self.response.write(list_template.render(variables))
     def post(self):
         print(self.request.get('email'))
+        id = self.request.get('id')
+        key = ndb.Key(urlsafe=id)
+        temp_name = key.get()
         sender = temp_name.email
         receiver = self.request.get('email')
         subject = "A Tutoriffic user messaged you!"
