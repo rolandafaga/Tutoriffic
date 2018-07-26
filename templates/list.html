@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="css/test.css" rel="stylesheet">
     <script src="js/clickEvents.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
@@ -11,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <!--Modal-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     <meta charset="utf-8">
     <title>Matches</title>
@@ -27,7 +32,7 @@
       <a class="navigation" href="/faq">FAQ</a>
       <a class="navigation" href="/create">Search</a>
             <!--if logged in, show log out button instead-->
-            <a class="{{logout_button}} navigation" href="{{url}}">Log Out</a>
+            <a id="tryme" class="{{logout_button}} navigation" href="{{url}}">Log Out</a>
             <a class="{{login_button}} navigation" href="{{url}}">Log in</a>
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>
@@ -39,9 +44,36 @@
       <div><span id="namee">{{info.name}}</span><span id="stutor"> {{info.user_type}}</span></div>
       <div><span class="characteristic">Available: </span><span class="infor">{{info.avb}}</span></div>
       <div><span class="characteristic">Subject: </span><span class="infor">{{info.sub.capitalize()}}</span></div>
-      <div id="sendemail">Send an email!</div>
+      <!--<div id="sendemail">Send an email!</div>-->
+      <button id="sendemail" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Send an email!</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <input id="emailbox" class="email" value='{{info.email}}' name='email' hidden>
+              <input name='body'>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Send</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
       <form method='post'>
-        <input value='{{info.email}}' name='email' hidden>
+        <input class="email" value='{{info.email}}' name='email' hidden>
         <input name='body'>
         <button>Send</button>
       </form>
