@@ -124,7 +124,15 @@ class ListHandler(webapp2.RequestHandler):
         self.response.write(list_template.render(variables))
     def post(self):
         print(self.request.get('email'))
-        mail.send_mail(sender=temp_name.email, to=self.request.get('name'), self.request.get('email'), subject="A Tutoriffic user messaged you!", body=self.request.get('body'))
+        sender = temp_name.email
+        receiver = self.request.get('email')
+        subject = "A Tutoriffic user messaged you!"
+        body = self.request.get('body')
+
+        mail.send_mail(sender, receiver, subject, body)
+
+        self.redirect('/')
+        #mail.send_mail(sender=temp_name.email, to=self.request.get('name') <self.request.get('email')>, subject="A Tutoriffic user messaged you!", body=self.request.get('body'))
 
 
 
