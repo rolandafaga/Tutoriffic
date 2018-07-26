@@ -92,7 +92,10 @@ class ProfileHandler(webapp2.RequestHandler):
                                          SearchForm.id == user_id,
                                          SearchForm.avb == availability).fetch(limit = 1)
         if len(existing_info) > 0:
-            self.redirect('/create')
+            error = {
+                'existing_info': existing_info
+            }
+            self.response.write(search_template.render(error))
             return None
 
         info.put()
