@@ -40,6 +40,7 @@
     <h2 class="test">Search Results<span>|</span></h2>
     <ul>
     {% for info in clients %}
+      <script>addTo()</script>
       <div id="userinfo">
       <img id="dp" src="images/profilepic1.png"/>
       <div><span id="namee">{{info.name}}</span><span id="stutor"> {{info.user_type}}</span></div>
@@ -80,6 +81,9 @@
     </div>
     {% endfor %}
   </ul>
+  <div id="noresult">
+  <script>ifNone()</script>
+</div>
   </body>
   <footer>
   <p> <span id="foot">WebApp by: Catalyst </span><span id="contact">Contact Us: fakeappemail@gmail.com</span></p>
