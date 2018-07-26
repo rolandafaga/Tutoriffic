@@ -62,21 +62,20 @@
               <input name='body'>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Send</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal" onclick=mailSent()>Send</button>
             </div>
           </div>
 
         </div>
       </div>
 
-
-
-
+<!--
       <form method='post'>
         <input class="email" value='{{info.email}}' name='email' hidden>
         <input name='body'>
         <button onclick=mailSent()>Send</button>
       </form>
+-->
     </div>
     {% endfor %}
   </ul>
