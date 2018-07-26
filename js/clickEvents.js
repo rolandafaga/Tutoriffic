@@ -30,7 +30,4 @@ function ifNone() {
 	if (clients.length == 0) {
 		document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
 	}
-	else {
-		document.write(clients);
-	}
 }
