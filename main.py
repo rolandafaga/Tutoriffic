@@ -86,6 +86,15 @@ class ProfileHandler(webapp2.RequestHandler):
         print(variables)
         info = SearchForm(name=name, user_type=user_type, sub=sub,
                     avb=availability, id=user_id, email=email)
+        existing_info = SearchForm.query(SearchForm.name == name,
+                                         SearchForm.email == email,
+                                         SearchForm.sub == sub,
+                                         SearchForm.id == user_id,
+                                         SearchForm.avb == availability).fetch(limit = 1)
+        if len(existing_info) > 0:
+            self.redirect('/create')
+            return None
+
         info.put()
         print(search_template)
 
