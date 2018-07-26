@@ -38,16 +38,22 @@
     </p>
     <div class="header"><img src="images/temp_header.jpg"></img></div>
     <h2 class="test">Search Results<span>|</span></h2>
+    {%for info in clients %}
+      <script>append("1",clients)</script>
+    {% endfor%}
+    <div id="noresult"><script>
+    ifNone(clients);
+    </script></div>
+
     <ul>
     {% for info in clients %}
       <div id="userinfo">
-      <img id="dp" src="images/profilepic1.jpg"/>
+      <img id="dp" src="images/profilepic1.png"/>
       <div><span id="namee">{{info.name}}</span><span id="stutor"> {{info.user_type}}</span></div>
       <div><span class="characteristic">Available: </span><span class="infor">{{info.avb}}</span></div>
       <div><span class="characteristic">Subject: </span><span class="infor">{{info.sub.capitalize()}}</span></div>
       <!--<div id="sendemail">Send an email!</div>-->
       <button id="sendemail" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Send an email!</button>
-
       <!-- Modal -->
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
