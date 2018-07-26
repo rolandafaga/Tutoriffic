@@ -90,29 +90,29 @@ class ProfileHandler(webapp2.RequestHandler):
                                          SearchForm.email == email,
                                          SearchForm.sub == sub,
                                          SearchForm.id == user_id,
-                                         SearchForm.avb == availability,
-                                         SearchForm.user_type == user_type).fetch(limit = 1)
+                                         SearchForm.avb == availability).fetch(limit = 1)
         if len(existing_info) > 0:
+            error = {
+                'existing_info': existing_info
+            }
+            self.response.write(search_template.render(error))
+            return None
 
-            self.redirect('/list?id=%s'% existing_info[0].key.urlsafe())
-        else:
-            info.put()
-            self.redirect('/list?id=%s'% info.key.urlsafe())
+        info.put()
+        print(search_template)
+
+        self.redirect('/list?id=%s'% info.key.urlsafe())
 
 class ListHandler(webapp2.RequestHandler):
     def get(self):
-
         list_template = jinja_env.get_template('templates/list.html')
         id = self.request.get('id')
         key = ndb.Key(urlsafe=id)
         temp_name = key.get()
-
         if not temp_name:
             self.error(404)
             self.response.out.write('Page not found')
             return
-
-
 
         tutors = SearchForm.query(SearchForm.user_type != temp_name.user_type,
                                   SearchForm.sub == temp_name.sub,
