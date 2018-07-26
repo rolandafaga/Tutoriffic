@@ -4,17 +4,16 @@ Home Page CSS
 
 **/
 body {
-  background-color: #ccffcc !important;
-  font-family: 'Source Sans Pro', sans-serif !important;
-  font-size: 100% !important;
+  background-color: #ccffcc;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .page {
   background-color: white;
   text-align: center;
-  margin-left:5% !important;
-  margin-right: 5% !important;
-  box-shadow: 5px 10px 10px grey !important;
+  margin-left:5%;
+  margin-right: 5%;
+  box-shadow: 5px 10px 10px grey;
 }
 
 .profile {
@@ -36,7 +35,7 @@ body {
 }
 
 header {
-  min-height: 140px !important;
+  min-height: 140px;
 }
 
 #homeLinks {
@@ -83,15 +82,11 @@ a:hover {
   transition: 0.3s;
 }
 
-#tryme {
-  border: 0.5px green solid;
-}
-
 .header {
   margin-top: 10px;
   text-align: center;
-  margin-left: 5% !important;
-  margin-right: 5% !important;
+  margin-left: 5%;
+  margin-right: 5%;
   overflow: hidden;
   height:250px;
   border: 4px green double;
@@ -303,8 +298,8 @@ button {
 
 input {
   height: 20px;
-  width: 90%;
 }
+
 
 .cred {
   color: #b35c00;
@@ -312,6 +307,10 @@ input {
   text-align: left;
   margin-left: 5%;
   margin-top:10px;
+}
+
+input {
+  width: 90%;
 }
 
 select {
@@ -358,7 +357,7 @@ select {
 }
 
 #dp {
-  height:200px;
+  height:150px;
   float:left;
   padding-right:10px;
   margin-top: 5px;
@@ -366,42 +365,5 @@ select {
 }
 
 #namee {
-  font-family: 'Alegreya Sans SC', sans-serif;
-  font-size: 40px;
-  text-transform: uppercase;
-  border-bottom: 1px solid black;
-}
-
-#stutor {
-  font-family: 'Oswald', sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-.characteristic {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-.infor {
-  font-family: 'Raleway', sans-serif;
-  text-transform: lowercase;
-  font-size: 20px;
-}
-
-#sendemail {
-  font-family: 'Amatic SC', cursive;
-  font-size: 30px;
-  display: inline-flex;
-
-  padding: 10px;
-  color: #fff3e6;
-  background-color: green;
-  text-align: center;
-  width:auto;
-}
-
-#emailbox {
-  width:110%;
+  font-family: cursive;
 }
