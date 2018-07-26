@@ -368,11 +368,13 @@ select {
 #namee {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 220%;
+  text-transform: uppercase;
 }
 
 #stutor {
-  font-family: ;
+  font-family: 'Oswald', sans-serif;
   font-size: ;
+  text-transform: uppercase;
 }
 
 .characteristic {
