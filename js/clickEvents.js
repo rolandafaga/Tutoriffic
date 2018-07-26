@@ -20,10 +20,14 @@ function mailSent() {
 	alert('Your message is sending. You should see the message in your inbox.');
 }
 
-function ifNone() {
-	document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
+clients=[];
 
-	if (clients.length) {
+function append(item) {
+	clients.append(item);
+}
+
+function ifNone() {
+	if (clients.length == 0) {
 		document.write("Sorry, it looks like there are no matches at this point in time :( Please check back later!");
 	}
 	else {
