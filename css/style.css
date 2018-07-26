@@ -92,9 +92,9 @@ a:hover {
   margin-right: 5% !important;
   overflow: hidden;
   height:250px;
-  background:repeating-linear-gradient(
+  background: repeating-linear-gradient(
   45deg,
-  #5d9634
+  #5d9634,
   #5d9634 10px,
   #538c2b 10px,
   #538c2b 20px);
