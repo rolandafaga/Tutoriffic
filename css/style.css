@@ -369,18 +369,30 @@ select {
   font-family: 'Alegreya Sans SC', sans-serif;
   font-size: 220%;
   text-transform: uppercase;
+  border-bottom: 1px solid black;
 }
 
 #stutor {
   font-family: 'Oswald', sans-serif;
-  font-size: ;
+  font-size: 100%;
   text-transform: uppercase;
 }
 
 .characteristic {
-
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 110%;
+  text-transform: uppercase;
 }
 
 .infor {
+  font-family: 'Raleway', sans-serif;
+  text-transform: lowercase;
+  font-size: 110%;
+}
 
+#sendemail {
+  font-family: 'Amatic SC', cursive;
+  font-size: 175%;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
