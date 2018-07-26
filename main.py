@@ -97,8 +97,6 @@ class ListHandler(webapp2.RequestHandler):
         id = self.request.get('id')
         key = ndb.Key(urlsafe=id)
         temp_name = key.get()
-#mail.send_mail(sender="temp_name.email", to=userEmail, subject="A Tutoriffic user messaged you!", body=""" body.get() """ + user)
-        if not temp_name:
             self.error(404)
             self.response.out.write('Page not found')
             return
@@ -137,8 +135,8 @@ class ListHandler(webapp2.RequestHandler):
         body = self.request.get('body')
 
         mail.send_mail(sender, receiver_mail, subject, body)
+
         self.redirect('/')
-        #mail.send_mail(sender=temp_name.email, to=self.request.get('name') <self.request.get('email')>, subject="A Tutoriffic user messaged you!", body=self.request.get('body'))
 
 
 
