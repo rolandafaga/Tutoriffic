@@ -1,4 +1,4 @@
-Google Computer Science Summer Institute  |  
+Google Computer Science Summer Institute    
 Seattle, WA - July 2018
 
 Participated in an intensive programming institute learning web app, development in Python, HTML5, and
