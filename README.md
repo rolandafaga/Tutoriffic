@@ -1,6 +1,5 @@
 # Google Computer Science Summer Institute    
-Seattle, WA - July 2018
-Project - Tutoriffic
+Seattle, WA - July 2018   |   Project - Tutoriffic
 
 Participated in an intensive three-week programming institute learning web app, development in Python, HTML5, and Google AppEngine from Google engineers.
 
